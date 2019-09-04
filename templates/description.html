@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2> Description of the visualization of most frequent words </h2>
+<p>
+    For the visualization, all words which appear with a frequency higher
+    than the value entered as threshold are taken into consideration.
+    Here, we take into account word appearence in all articles from a
+    list of (around 39) RSS-feeds.
+    The relations between  the resulting words are visualized in a graph
+    as follows: As soon as two words appear in the summary of an article,
+    an edge (with weight one) is established between them. For every
+    additional appearence in the summary of a different article,
+    the weight is increased by one.
+<br>
+</p>
+<br>
+<h3>
+    Word exclusion
+</h3>
+<p>
+    For the count, we exclude a list of words such as "a", "an", "and", ...
+<br>
+    You can download the text file containing the
+    <a href="./static/excluded_words.txt" download>list of excluded words</a> here.
+</p>
+
+{% endblock %}

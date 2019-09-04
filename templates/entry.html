@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+
+<form method='POST' action='/search4'>
+    <table>
+        <p>Please type in a list of words (separated by commas) in the following field. I will look for
+            newsfeeds which contain all of them.</p>
+        <tr><td>Words:</td><td><input name='words' type='TEXT' width='60'></td></tr>
+    </table>
+
+    <table>
+        <p>If you want to see a visualization of the most frequent words today, please
+        check the box. For an explanation of the visualization click
+        <a href="/description" target="_blank">here</a>.
+        </p>
+
+        <input type="checkbox" name="visualization" value="True"> Visualization<br>
+
+        <tr><td>Threshold (default=20):</td><td><input name='threshold' type='TEXT'></td></tr>
+
+    </table>
+
+    <p><input type='SUBMIT' value='Start search'></p>
+</form>
+
+
+{% endblock %}

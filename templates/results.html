@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    
+{% if visualization %}
+	<figure>
+   	 	<img src = "./static/images/interaction_graph.png" width="94%" height="94%" 
+           	 	alt="Interaction Graph">
+    	<figcaption>{%if threshold %}
+                	Threshold is set to {threshold}.
+                	{%else %}
+                	{{errorstring}}
+                	{% endif %}
+                	<br>
+                	List of the most frequent words (appearing in the graph above)
+        	 in descending order corresponding to the eigenvector centrality:
+    	<br>
+    	<b>{{words_ordered}}</b></figcaption>
+	</figure>
+
+{% endif %}
+<p>
+&nbsp;
+</p>
+
+
+{% if num_results >= 1: %}
+    <h2>We found the following {{num_results}} newsfeed(s) containing the word(s)
+     "{{the_words}}":</h2>
+{% elif num_results==0: %}
+    <h2>At the moment there are no newsfeeds containing the word(s) "{{the_words}}"
+     in our database.</h2>
+{% endif%}
+
+{% for link, title in zip(the_results, title_list) %}
+<p><a href={{link}} a> {{title}} </a></p>
+{% endfor %}
+
+{% endblock %}
